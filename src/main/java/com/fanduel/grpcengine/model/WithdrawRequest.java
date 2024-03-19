@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 public record WithdrawRequest(
         String requestId,
-        BigDecimal amount, Long userId
+        BigDecimal amount,
+        Long userId
 ) {
 }
