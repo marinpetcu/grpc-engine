@@ -1,12 +1,14 @@
-package com.fanduel.controller;
+package com.fanduel.grpcengine.controller;
 
-import com.fanduel.model.WithdrawRequest;
-import com.fanduel.service.WithdrawService;
+import com.fanduel.grpcengine.model.WithdrawRequest;
+import com.fanduel.grpcengine.service.WithdrawService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@RequestMapping("withdraw")
+@RestController
+@RequestMapping("/withdraw")
 public class WithdrawController {
 
     private final WithdrawService withdrawService;

@@ -1,4 +1,4 @@
-package com.fanduel.model;
+package com.fanduel.grpcengine.model;
 
 import java.math.BigDecimal;
 
