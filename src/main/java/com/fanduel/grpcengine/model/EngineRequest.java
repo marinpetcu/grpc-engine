@@ -2,7 +2,7 @@ package com.fanduel.grpcengine.model;
 
 import java.math.BigDecimal;
 
-public record WithdrawRequest(
+public record EngineRequest(
         String requestId,
         BigDecimal amount,
         Long userId

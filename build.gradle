@@ -34,15 +34,13 @@ dependencies {
     implementation "io.grpc:grpc-stub:${grpcVersion}"
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'io.grpc:grpc-testing:1.62.2'
+    testImplementation 'net.devh:grpc-client-spring-boot-starter:3.0.0.RELEASE'
 }
 
 protobuf {
     protoc {
         artifact = "com.google.protobuf:protoc:${protobufVersion}"
-    }
-    generatedFilesBaseDir = "$projectDir/src/generated"
-    clean {
-        delete generatedFilesBaseDir
     }
     plugins {
         grpc {

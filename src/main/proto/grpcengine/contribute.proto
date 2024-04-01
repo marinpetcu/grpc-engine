@@ -1,20 +1,29 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "com.fanduel.grpc.lib";
 
-message EngineContributeRequest {
-  string requestId = 1;
-  double userId = 2;
-  double amount = 3;
-  string transactionRef = 4;
+package com.fanduel.marin.contrib;
+
+import "google/protobuf/struct.proto";
+import "google/type/money.proto";
+
+service ContributionService {
+  rpc Contribute(ContributeRequest) returns (ContributeResponse);
 }
 
-message EngineContributeResponse {
-  string responseId = 1;
+message ContributeRequest {
+  Contribution data = 1;
 }
 
-service EngineContributeService {
-  rpc Contribute (EngineContributeRequest) returns (EngineContributeResponse) {
-  }
+message ContributeResponse {}
+
+message ContributeStreamingRequest {
+  Contribution data = 1;
+}
+
+message Contribution {
+  string game_id = 3;
+  string player_id = 4;
+  string gameround_id = 6;
+  google.type.Money base_wager = 7;
 }
