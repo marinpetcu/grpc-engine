@@ -9,9 +9,6 @@ import "google/type/money.proto";
 service ContributionService {
   // Make a single contribution
   rpc Contribute(ContributeRequest) returns (ContributeResponse);
-
-  // Make multiple pre-queued and pre-sorted contributions
-  rpc ContributeMany(ContributeManyRequest) returns (ContributeManyResponse);
 }
 
 // Contribution request containing the contribution payload.
@@ -22,15 +19,6 @@ message ContributeRequest {
 
 // An empty contribution response. Response status code indicates success or failure.
 message ContributeResponse {}
-
-// Contribution request containing multiple pre-queued and pre-sorted contribution payloads.
-message ContributeManyRequest {
-  // Multiple pre-queued and pre-sorted contributions payload.
-  repeated Contribution data = 1;
-}
-
-// An empty contribution response. Response status code indicates success or failure.
-message ContributeManyResponse {}
 
 // Contribution payload.
 message Contribution {
@@ -45,7 +33,7 @@ message Contribution {
   // ISO 3166-2 code used to determine if a jackpot is accessible in a particular jurisdiction.
   string player_country_subdivision_code = 5;
   // Game round identifier.
-  string gameround_id = 6;
+  string round_id = 6;
   // Base contribution amount.
   google.type.Money base_wager = 7;
   // Metadata to forward with wallet requests and contrib results.
